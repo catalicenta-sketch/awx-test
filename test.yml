@@ -1,0 +1,12 @@
+- name: Test AWX SSH connection
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Get hostname
+      ansible.builtin.command: hostname
+      register: hostname_result
+
+    - name: Show hostname
+      ansible.builtin.debug:
+        var: hostname_result.stdout
